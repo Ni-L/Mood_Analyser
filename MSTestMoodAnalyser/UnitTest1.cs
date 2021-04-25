@@ -4,43 +4,49 @@ using Analyse_Mood;
 
 namespace MSTestMoodAnalyser
 {/// <summary>
-/// Creating TestCase1 of UnitTest1 for Dispalying I am in sad mood
-/// </summary>
+ /// TC3.1 Nullmood Using CustomException Return Null
+ /// </summary>
     [TestClass]
     public class UnitTest1
-    {
-        /// <summary>
-        /// TC2.1 nullmood should return happy
-        /// </summary>
+    {/// <summary>
+     /// TC3.1 Nullmood Using CustomException Return Null
+     /// </summary>
         [TestMethod]
-        public void Given_nullmood_Expecting_Happy_Results()
+        public void Given_Nullmood_Using_CustomException_Return_Null()
         {
             //Arrange;
             AnalyseMood mood = new AnalyseMood(null);
-            string expected = "happy";
-
-            //Act
-            string actual = mood.AnalyserMethod();
-
-            //Asert
-            Assert.AreEqual(expected, actual);
+            string expected = "Mood should not be null";
+            try
+            {
+                //Act
+                string actual = mood.AnalyserMethod();
+            }
+            catch (MoodAnalyserException exception)
+            {
+                //Asert
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         /// <summary>
-        /// TC2.1 nullmood should return happy
+        /// TC3.2 Emptymood Using CustomException Return empty
         /// </summary>
         [TestMethod]
-        public void GivenNull_Expecting_Happy_Results()
+        public void Given_Emptymood_Using_CustomException_Return_Empty()
         {
             //Arrange;
-            AnalyseMood mood = new AnalyseMood(null);
-            string expected = "happy";
-
-            //Act
-            string actual = mood.AnalyserMethod();
-
-            //Asert
-            Assert.AreEqual(expected, actual);
+            AnalyseMood mood = new AnalyseMood("");
+            string expected = "Mood should not be empty";
+            try
+            {
+                //Act
+                string actual = mood.AnalyserMethod();
+            }
+            catch (MoodAnalyserException exception)
+            {
+                //Asert
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
     }
 }
-   

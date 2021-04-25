@@ -23,22 +23,24 @@ namespace Analyse_Mood
             //NULL Scenario using try catch and return Happy
             try
             {
-                //ToLower to return copy of the string
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
+                }
                 if (this.message.ToLower().Contains("happy"))
                 {
-                    //If Happy Print 
                     return "happy";
                 }
                 else
                 {
-                    //If not Happy Print 
                     return "sad";
-                }//end Of If 
-            }//End of try
-            catch
+                }
+            }
+            catch (NullReferenceException)
             {
-                return "happy";
-            }//End of Catch
+                //return ex.Message;
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NULL_EXCEPTION, "Mood should not be null");
+            }
         }
 
     }
