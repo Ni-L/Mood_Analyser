@@ -9,40 +9,38 @@ namespace MSTestMoodAnalyser
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// TC2.1 nullmood should return happy
+        /// </summary>
         [TestMethod]
-        //Adding Method 
-        public void Given_Sad_Mood_message()
+        public void Given_nullmood_Expecting_Happy_Results()
         {
-            //Arrange
-            //Creating Object of Class 
-            AnalyseMood mood = new AnalyseMood("I am in Sad Mood");
-            //expected sad message
-            string expected = "sad";
-
-            //Act
-            //actual value present in analyser
-            string actual = mood.Analyser();
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-        // Creating TestCase2 of UnitTest1 for Dispalying I am in happy mood
-        [TestMethod]
-        //Adding Method 
-        public void Given_Happy_Mood_message()
-        {
-            //Arrange
-            //Creating Object of Class
-            AnalyseMood mood2 = new AnalyseMood("I am in happy Mood");
-            //expected sad message
+            //Arrange;
+            AnalyseMood mood = new AnalyseMood(null);
             string expected = "happy";
 
             //Act
-            //actual value present in analyser
-            string actual = mood2.Analyser();
+            string actual = mood.AnalyserMethod();
 
-            //Assert
+            //Asert
+            Assert.AreEqual(expected, actual);
+        }
+        /// <summary>
+        /// TC2.1 nullmood should return happy
+        /// </summary>
+        [TestMethod]
+        public void GivenNull_Expecting_Happy_Results()
+        {
+            //Arrange;
+            AnalyseMood mood = new AnalyseMood(null);
+            string expected = "happy";
+
+            //Act
+            string actual = mood.AnalyserMethod();
+
+            //Asert
             Assert.AreEqual(expected, actual);
         }
     }
 }
+   

@@ -12,23 +12,34 @@ namespace Analyse_Mood
     {
         //Add Instance Variable string type
         public string message;
-        public AnalyseMood(string message)//Add Method 
+
+        public AnalyseMood(string message)//Parametrised Constructor 
         {
             this.message = message;//Instance Variable           
         }
-        public string Analyser()//Add Method
+        //Default Constructor
+        public string AnalyserMethod()//Add Method
         {
-            //ToLower to return copy of the string
-            if (this.message.ToLower().Contains("happy"))
+            //NULL Scenario using try catch and return Happy
+            try
             {
-                //If Happy Print 
+                //ToLower to return copy of the string
+                if (this.message.ToLower().Contains("happy"))
+                {
+                    //If Happy Print 
+                    return "happy";
+                }
+                else
+                {
+                    //If not Happy Print 
+                    return "sad";
+                }//end Of If 
+            }//End of try
+            catch
+            {
                 return "happy";
-            }
-            else
-            {
-                //If not Happy Print 
-                return "sad";
-            }
+            }//End of Catch
         }
+
     }
 }
