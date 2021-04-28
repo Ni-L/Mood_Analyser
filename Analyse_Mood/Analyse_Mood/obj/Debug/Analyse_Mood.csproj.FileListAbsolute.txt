@@ -1,0 +1,7 @@
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\bin\Debug\Analyse_Mood.exe.config
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\bin\Debug\Analyse_Mood.exe
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\bin\Debug\Analyse_Mood.pdb
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\obj\Debug\Analyse_Mood.csprojAssemblyReference.cache
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\obj\Debug\Analyse_Mood.csproj.CoreCompileInputs.cache
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\obj\Debug\Analyse_Mood.exe
+C:\Users\Aniket\source\repos\Mood_Analyser\Mood_Analyser\Analyse_Mood\Analyse_Mood\obj\Debug\Analyse_Mood.pdb
