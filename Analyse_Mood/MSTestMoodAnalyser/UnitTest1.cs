@@ -8,47 +8,28 @@ namespace MSTestMoodAnalyser
  /// </summary>
     [TestClass]
     public class UnitTest1
-    {//Tc5.1Given MoodAnalyser When Proper Return MoodAnalyser Object
-
+    {
         [TestMethod]
-        public void Given_MoodAnalyser_When_Proper_Return_MoodAnalyser_Object()
+        public void GivenHappyMessage_UsingReflection_Should_ReturnHappy()
         {
-            object expected = new AnalyseMood("HAPPY");
-            object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "HAPPY");
-            expected.Equals(obj);
+            string message = MoodAnalyzerFactory.InvokeMethod("MoodAnalyzer.MoodAnalyser", "GetMood", "HAPPY");
+            Assert.AreEqual("HAPPY", message);
         }
 
-        [TestMethod]
-        //Tc5.2 Given Class Name When Improper Should Throw MoodAnalysisException
-
-        public void Given_ClassName_WhenImproper_Should_Throw_MoodAnalysisException()
-        {
-            string expected = "Class not found";
-            try
-            {
-                object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.sampleClass", "MoodAnalyser", "HAPPY");
-            }
-            catch (MoodAnalyserException e)
-            {
-                Assert.AreEqual(expected, e.Message);
-            }
-        }
-
-        // <summary>
-        /// This test case is for
-        /// TC 5.3 Given Invalid constructor name should throw MoodAnalyserException.
+        /// <summary>
+        /// Test Case 6.2 
+        /// Given Happy message when improper method should throw MoodAnalyserException
         /// </summary>
         [TestMethod]
-        public void GivenInvalidConstructorName_ShouldThrow_MoodAnalyserException_Of_ParameterizedConstructor()
+        public void GivenHappyMessage_UsingReflection_WhenIncorrectMethod_shouldThrow_MoodAnayserException()
         {
-            string expected = "Constructor is not found";
             try
             {
-                object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "sampleClass", "HAPPY");
+                string message = MoodAnalyzerFactory.InvokeMethod("MoodAnalyzer.MoodAnalyser", "getMethod", "HAPPY");
             }
             catch (MoodAnalyserException e)
             {
-                Assert.AreEqual(expected, e.Message);
+                Assert.AreEqual(MoodAnalyserException.ExceptionType.INVALID_INPUT, e.Message);
             }
         }
     }

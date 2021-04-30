@@ -11,7 +11,6 @@ namespace Analyse_Mood
 
     public class MoodAnalyzerFactory
     {
-
         public static object CreateMoodAnalyser(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
@@ -56,6 +55,27 @@ namespace Analyse_Mood
             {
                 throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.NO_SUCH_CLASS, "Class not found");
 
+            }
+        }
+
+        ///UC6 Use Reflection to Invoke the method
+
+        public static string InvokeMethod(string className, string methodName, string message)
+        {
+            Type type1 = typeof(AnalyseMood);
+            try
+            {
+                ConstructorInfo constructor = type1.GetConstructor(new[] { typeof(string) });
+                object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor(className, methodName, message);
+                Assembly excutingAssambly = Assembly.GetExecutingAssembly();
+                Type type = excutingAssambly.GetType(className);
+                MethodInfo getMoodMethod = type.GetMethod(methodName);
+                string msg = (string)getMoodMethod.Invoke(obj, null);
+                return msg;
+            }
+            catch (Exception)
+            {
+                throw new MoodAnalyserException(MoodAnalyserException.ExceptionType.INVALID_INPUT, "No Such Method");
             }
         }
     }
