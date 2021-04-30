@@ -4,63 +4,52 @@ using Analyse_Mood;
 
 namespace MSTestMoodAnalyser
 {/// <summary>
- ///         //UC4-reflection to create mood analyser
+ /// //Tc5.1Given MoodAnalyser When Proper Return MoodAnalyser Object       
  /// </summary>
     [TestClass]
     public class UnitTest1
-    {/// <summary>
-     /// TC4.1 Given MoodAnalyser Class Name Should Return MoodAnalyser Object
-     /// </summary>
+    {//Tc5.1Given MoodAnalyser When Proper Return MoodAnalyser Object
+
         [TestMethod]
-        public void Given_MoodAnalyserClass_Name_ShouldReturn_MoodAnalyserObject()
+        public void Given_MoodAnalyser_When_Proper_Return_MoodAnalyser_Object()
         {
-            string message = null;
-            object expected = new AnalyseMood(message);
-            MoodAnalyzerFactory factory = new MoodAnalyzerFactory();
-            object obj = factory.CreateMoodAnalyzerObject("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
+            object expected = new AnalyseMood("HAPPY");
+            object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "HAPPY");
             expected.Equals(obj);
         }
-        /// <summary>
-        ///  TC 4.2:- Given Class Name When Improper Should Throw MoodAnalysisException
-        /// </summary>
+
         [TestMethod]
-        public void Given_MoodAnalyseClass_GivenWrongClassName_ShouldReturn_NOClassException()
+        //Tc5.2 Given Class Name When Improper Should Throw MoodAnalysisException
+
+        public void Given_ClassName_WhenImproper_Should_Throw_MoodAnalysisException()
         {
             string expected = "Class not found";
             try
             {
-                string message = null;
-                object moodAnalyser = new AnalyseMood(message);
-                MoodAnalyzerFactory factory = new MoodAnalyzerFactory();
-                object obj = factory.CreateMoodAnalyzerObject("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
-                moodAnalyser.Equals(obj);
+                object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.sampleClass", "MoodAnalyser", "HAPPY");
             }
-            catch (MoodAnalyserException ex)
+            catch (MoodAnalyserException e)
             {
-                Assert.AreEqual(expected, ex.Message);
+                Assert.AreEqual(expected, e.Message);
             }
-
         }
-        /// <summary>
-        /// TC 4.3:- Given Class When Constructor Not Proper Should Throw MoodAnalysisException
+
+        // <summary>
+        /// This test case is for
+        /// TC 5.3 Given Invalid constructor name should throw MoodAnalyserException.
         /// </summary>
         [TestMethod]
-        public void Given_MoodAnalyseClass_GivenWrongConstructorName_ShouldReturn_NoConstructorException()
+        public void GivenInvalidConstructorName_ShouldThrow_MoodAnalyserException_Of_ParameterizedConstructor()
         {
-            string expected = "Constructor not found";
+            string expected = "Constructor is not found";
             try
             {
-                string message = null;
-                object moodAnalyser = new AnalyseMood(message);
-                MoodAnalyzerFactory factory = new MoodAnalyzerFactory();
-                object obj = factory.CreateMoodAnalyzerObject("MoodAnalyzerProblem.MoodAnalyzer", "MoodAnalyzer");
-                moodAnalyser.Equals(obj);
+                object obj = MoodAnalyzerFactory.CreatedMoodAnalyserUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "sampleClass", "HAPPY");
             }
-            catch (MoodAnalyserException ex)
+            catch (MoodAnalyserException e)
             {
-                Assert.AreEqual(expected, ex.Message);
+                Assert.AreEqual(expected, e.Message);
             }
-
         }
     }
 }
