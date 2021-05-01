@@ -1,0 +1,7 @@
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\bin\Debug\MoodAnalyserReflection.exe.config
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\bin\Debug\MoodAnalyserReflection.exe
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\bin\Debug\MoodAnalyserReflection.pdb
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\obj\Debug\MoodAnalyserReflection.csprojAssemblyReference.cache
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\obj\Debug\MoodAnalyserReflection.csproj.CoreCompileInputs.cache
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\obj\Debug\MoodAnalyserReflection.exe
+C:\Users\Aishwarya\source\repos\Mood_Analyser\MoodAnalyserReflection\MoodAnalyserReflection\obj\Debug\MoodAnalyserReflection.pdb
